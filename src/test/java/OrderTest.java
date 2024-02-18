@@ -20,28 +20,30 @@ public class OrderTest {
     }
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
-        driver.get("http://0.0.0.0:7777");
+        driver.get("http://localhost:7777");
     }
+
     @AfterEach
-    void tearDown() {
+    public void tearDown() {
         driver.quit();
         driver = null;
     }
+
     @Test
-    void Test1() {
+    public void Test1() {
 
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Владимирова Екатерина");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79990000000");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
         driver.findElement(By.cssSelector("[button.button]")).click();
-       var actualText = driver.findElement(By.className("[data-test-id=order-success]")).getText().trim();
-        assertEquals ("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText);
+        var actualText = driver.findElement(By.className("[data-test-id=order-success]")).getText().trim();
+        assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText);
     }
 }
 
