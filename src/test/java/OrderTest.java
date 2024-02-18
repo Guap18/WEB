@@ -14,10 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class OrderTest {
     private WebDriver driver;
 
-    @BeforeAll
-    public static void setupAll() {
-        WebDriverManager.chromedriver().setup();
-    }
+
 
     @BeforeEach
     public void setUp() {
