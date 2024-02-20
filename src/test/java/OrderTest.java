@@ -38,7 +38,7 @@ public class OrderTest {
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Владимирова Екатерина");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79990000000");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
-        driver.findElement(By.cssSelector("[class='button button_view_extra button_size_m button_theme_alfa-on-white']")).click();
+        driver.findElement(By.cssSelector("button.button")).click();
         var actualText = driver.findElement(By.cssSelector("[data-test-id='order-success']")).getText().trim();
         assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText);
     }
